@@ -8,14 +8,16 @@ This currently spins up 3 redpanda brokers (on port 19092, 29092, 39092 respecti
   
 Currently this is running on a machine running Rocky 9 on the cloud, with `containerd` installed along with `nerdctl`. Check https://cloud.stfc.ac.uk/machines/ for more details. 
 
-To set this up from scratch create a new machine, create a user (username is in keeper) and add to sudoers (required unless you want to try and get rootless containerd working) by editing `/etc/sudoers.d/<newfilehere>` - you can pretty much copy the configuration from the `cloud` file. 
+To set this up from scratch create a new machine, create a user `ds` (see keeper for PW) and add to sudoers (required unless you want to try and get rootless containerd working) by editing `/etc/sudoers.d/<newfilehere>` - you can pretty much copy the configuration from the `cloud` file. 
 <br>
 
 </details>
 
 ## Running
 
-To use this compose file first create `.env` on your machine with these contents: 
+First clone this repo to `/home/ds/ds-containers`
+
+To use this compose file first modify `.env` on your machine with these contents: 
 ```.env
 EXT_HOST=<yourhost>
 ```
