@@ -33,4 +33,4 @@ Retention policy is in-place by default, set to 7 days with no byte-limit, longe
 Volumes are persistent so a `nerdctl compose down` will not cause any lost data. 
 
 ## Notes for production
-This should not be used for production as by redpandas own definition deploying with a compose file is not production-worthy. If we were to deploy this on a production machine, we should use Kubernetes or a local deployment, with several machines acting as individual brokers. 
+This should not be used for production as by [redpandas own definition](https://docs.redpanda.com/current/get-started/quick-start/) deploying with a compose file is not production-worthy. If we were to deploy this on a production machine, we should use Kubernetes or a local deployment, with several machines acting as individual brokers. 
