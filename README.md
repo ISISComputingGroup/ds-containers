@@ -15,7 +15,8 @@ To set this up from scratch create a new machine, create a user `ds` (see keeper
 
 ## Running
 
-First clone this repo to `/home/ds/ds-containers`
+First clone this repo with 
+`git clone https://github.com/ISISComputingGroup/ds-containers.git /home/ds/ds-containers`
 
 To use this compose file first modify `.env` on your machine with these contents: 
 ```.env
@@ -24,7 +25,7 @@ EXT_HOST=<yourhost>
 where `<yourhost>` is your externally facing hostname. 
 
 then run 
-`sudo nerdctl compose -f compose.yml up`
+`sudo nerdctl compose -f compose.yml up` from ` /home/ds/ds-containers`
 
 ## Kafka setup 
 
