@@ -130,4 +130,31 @@ services:
       - redpanda-0
       - redpanda-1
       - redpanda-2
-      
+  forwarder:
+    container_name: forwarder
+    build:
+      context: ./forwarder/  # this is a submodule because of https://github.com/containerd/nerdctl/blob/main/docs/compose.md#incompatibility not supporting URLs yet
+      dockerfile: Containerfile
+    ports:
+      - 9092:9092
+      - 5065:5065
+      - 5064:5064
+    command: "--status-topic=${EXT_HOST}:9092/forwarder_status --config-topic=${EXT_HOST}:9092/forwarder_config --output-broker=${EXT_HOST}:9092 --pv-update-period=1000 --verbosity Trace"
+    networks:
+      - redpanda_network
+    depends_on:
+      - redpanda-0
+      - redpanda-1
+      - redpanda-2
+  filewriter:
+    container_name: filewriter
+    build:
+      context: ./filewriter/  # this is a submodule because of https://github.com/containerd/nerdctl/blob/main/docs/compose.md#incompatibility not supporting URLs yet
+      dockerfile: Containerfile
+    command: "--brokers ${EXT_HOST}:9092 --command-status-topic filewriter_status --job-pool-topic filewriter_pool --hdf-output-prefix=output"
+    networks:
+      - redpanda_network
+    depends_on:
+      - redpanda-0
+      - redpanda-1
+      - redpanda-2
