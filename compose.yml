@@ -149,7 +149,7 @@ services:
     image: ghcr.io/isiscomputinggroup/kafka-to-nexus:main
     ports:
       - 9092:9092
-    command: "--brokers ${EXT_HOST}:9092 --command-status-topic filewriter_status --job-pool-topic filewriter_pool --hdf-output-prefix=output"
+    command: "--brokers ${EXT_HOST}:9092 --command-status-topic filewriter_status --job-pool-topic filewriter_pool --hdf-output-prefix=output --verbosity Trace"
     networks:
       - redpanda_network
     depends_on:
