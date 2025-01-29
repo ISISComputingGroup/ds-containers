@@ -1,6 +1,0 @@
-[submodule "forwarder"]
-	path = forwarder
-	url = https://github.com/ISISComputingGroup/forwarder.git
-[submodule "filewriter"]
-	path = filewriter
-	url = https://github.com/ISISComputingGroup/kafka-to-nexus.git

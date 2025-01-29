@@ -132,9 +132,7 @@ services:
       - redpanda-2
   forwarder:
     container_name: forwarder
-    build:
-      context: ./forwarder/  # this is a submodule because of https://github.com/containerd/nerdctl/blob/main/docs/compose.md#incompatibility not supporting URLs yet
-      dockerfile: Containerfile
+    image: ghcr.io/isiscomputinggroup/forwarder:main
     ports:
       - 9092:9092
       - 5065:5065
@@ -148,9 +146,9 @@ services:
       - redpanda-2
   filewriter:
     container_name: filewriter
-    build:
-      context: ./filewriter/  # this is a submodule because of https://github.com/containerd/nerdctl/blob/main/docs/compose.md#incompatibility not supporting URLs yet
-      dockerfile: Containerfile
+    image: ghcr.io/isiscomputinggroup/kafka-to-nexus:main
+    ports:
+      - 9092:9092
     command: "--brokers ${EXT_HOST}:9092 --command-status-topic filewriter_status --job-pool-topic filewriter_pool --hdf-output-prefix=output"
     networks:
       - redpanda_network
