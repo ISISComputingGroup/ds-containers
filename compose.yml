@@ -130,21 +130,23 @@ services:
       - redpanda-0
       - redpanda-1
       - redpanda-2
-  # Forwarder - disabled for now because it relies on an epics gateway.
-  # forwarder: 
-  #   container_name: forwarder
-  #   image: ghcr.io/isiscomputinggroup/forwarder:main
-  #   ports:
-  #     - 9092:9092
-  #     - 5065:5065
-  #     - 5064:5064
-  #   command: "--status-topic=${EXT_HOST}:9092/forwarder_status --config-topic=${EXT_HOST}:9092/forwarder_config --output-broker=${EXT_HOST}:9092 --pv-update-period=1000 --verbosity Trace"
-  #   networks:
-  #     - redpanda_network
-  #   depends_on:
-  #     - redpanda-0
-  #     - redpanda-1
-  #     - redpanda-2
+  forwarder: 
+    container_name: forwarder
+    image: ghcr.io/isiscomputinggroup/forwarder:main
+    ports:
+      - 9092:9092
+      - 5065:5065
+      - 5064:5064
+    command: "--status-topic=${EXT_HOST}:9092/forwarder_status --config-topic=${EXT_HOST}:9092/forwarder_config --output-broker=${EXT_HOST}:9092 --pv-update-period=1000 --verbosity Trace"
+    environment:
+      - EPICS_CA_AUTO_ADDR_LIST=NO
+      - EPICS_CA_ADDR_LIST=${EPICS_CA_ADDR_LIST}
+    networks:
+      - redpanda_network
+    depends_on:
+      - redpanda-0
+      - redpanda-1
+      - redpanda-2
   filewriter:
     container_name: filewriter
     image: ghcr.io/isiscomputinggroup/kafka-to-nexus:main
