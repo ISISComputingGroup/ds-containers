@@ -148,7 +148,7 @@ services:
       - redpanda-1
       - redpanda-2
   forwarder_hifi: 
-    container_name: forwarder
+    container_name: forwarder_hifi
     image: ghcr.io/isiscomputinggroup/forwarder:main
     ports:
       - 9092:9092
