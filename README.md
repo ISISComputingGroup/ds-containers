@@ -1,6 +1,6 @@
 # ds-containers
 Data streaming container configuration for a development cluster. 
-This currently spins up 3 redpanda brokers (on port 19092, 29092, 39092 respectively) as well as the redpanda console which is available on port 8080. This can be used with replication, but preferably this is disabled for now as we are somewhat limited on disk space.
+This currently spins up 3 redpanda brokers (on port 9092, 29092, 39092 respectively) as well as the redpanda console which is available on port 8080. This can be used with replication, but preferably this is disabled for now as we are somewhat limited on disk space.
 
 <details>
 <summary>Host machine details</summary>
