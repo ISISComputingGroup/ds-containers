@@ -20,9 +20,13 @@ First clone this repo with
 
 To use this compose file first modify `.env` on your machine with these contents: 
 ```.env
-EXT_HOST=<yourhost>
+EXT_HOST=x
+HIFI_EXT_HOST=y
+EPICS_CA_ADDR_LIST=z
 ```
-where `<yourhost>` is your externally facing hostname. 
+where `EXT_HOST` is your externally facing hostname,
+`HIFI_EXT_HOST` is the muon kafka cluster,
+`EPICS_CA_ADDR_LIST` is the EPICS CA gateway you want to use for the forwarder.
 
 then run 
 `sudo nerdctl compose -f compose.yml up` from ` /home/ds/ds-containers`
