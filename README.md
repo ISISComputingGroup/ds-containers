@@ -29,7 +29,11 @@ where `EXT_HOST` is your externally facing hostname,
 `EPICS_CA_ADDR_LIST` is the EPICS CA gateway you want to use for the forwarder.
 
 then run 
-`sudo nerdctl compose -f compose.yml up` from ` /home/ds/ds-containers`
+`sudo nerdctl compose -f compose.yml up -d` from ` /home/ds/ds-containers`
+
+To stop all containers, but keep all data, run 
+`sudo nerdctl compose -f compose.yml down` from ` /home/ds/ds-containers`
+
 
 ## Kafka setup 
 
