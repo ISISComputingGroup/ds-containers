@@ -137,7 +137,7 @@ services:
       - 9092:9092
       - 5065:5065
       - 5064:5064
-    command: "--status-topic=${EXT_HOST}:9092/forwarder_status --config-topic=${EXT_HOST}:9092/forwarder_config --output-broker=${EXT_HOST}:9092 --pv-update-period=1000 --verbosity Trace"
+    command: "--status-topic=${EXT_HOST}:9092/forwarder_status --config-topic=${EXT_HOST}:9092/forwarder_config --output-broker=${EXT_HOST}:9092 --verbosity Trace"
     environment:
       - EPICS_CA_AUTO_ADDR_LIST=NO
       - EPICS_CA_ADDR_LIST=${EPICS_CA_ADDR_LIST}
