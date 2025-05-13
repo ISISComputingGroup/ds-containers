@@ -1,3 +1,7 @@
+> [!IMPORTANT]  
+> This is no longer used and the automation team will be managing the Kafka/redpanda instances going forwards. we may wish to use again for forwarder/filewriter if we decide a central instance is the way to go.
+
+
 # ds-containers
 Data streaming container configuration for a development cluster. 
 This currently spins up 3 redpanda brokers (on port 9092, 29092, 39092 respectively) as well as the redpanda console which is available on port 8080. This can be used with replication, but preferably this is disabled for now as we are somewhat limited on disk space.
